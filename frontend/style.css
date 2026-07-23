@@ -5,31 +5,61 @@
     font-family:'Poppins',sans-serif;
 }
 
-body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#4f46e5,#7c3aed);
-}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(-45deg,
+        #0f172a,
+        #1e3a8a,
+        #6d28d9,
+        #9333ea);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 .container{
     width:90%;
     max-width:900px;
     height:90vh;
-    background:white;
-    border-radius:25px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    border-radius:30px;
+
     overflow:hidden;
+
     display:flex;
+
     flex-direction:column;
-    box-shadow:0 20px 40px rgba(0,0,0,.2);
+
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
 }
 
 header{
-    background:linear-gradient(90deg,#4f46e5,#7c3aed);
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
     color:white;
+
     text-align:center;
-    padding:25px;
+
+    padding:28px;
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
 }
 
 header h1{
@@ -41,10 +71,15 @@ header p{
 }
 
 #chat-box{
+
     flex:1;
-    padding:25px;
+
+    padding:30px;
+
     overflow-y:auto;
-    background:#f8fafc;
+
+    background:rgba(255,255,255,.05);
+
 }
 
 .welcome{
@@ -74,28 +109,59 @@ header p{
 }
 
 textarea{
+
     flex:1;
+
     border:none;
+
     outline:none;
+
     resize:none;
-    background:#eef2ff;
-    border-radius:15px;
-    padding:15px;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    border-radius:18px;
+
+    padding:18px;
+
     font-size:16px;
+
+}
+
+textarea::placeholder{
+
+    color:#ddd;
+
 }
 
 button{
-    width:70px;
+
+    width:75px;
+
     border:none;
-    border-radius:15px;
-    background:#4f46e5;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#7c3aed,#2563eb);
+
     color:white;
-    font-size:22px;
+
+    font-size:24px;
+
     cursor:pointer;
+
+    transition:.3s;
+
 }
 
 button:hover{
-    background:#3730a3;
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.4);
+
 }
 .message{
 
@@ -115,25 +181,27 @@ button:hover{
 
 .user{
 
-    background:#4f46e5;
+    background:linear-gradient(135deg,#6366f1,#9333ea);
 
     color:white;
 
     margin-left:auto;
 
-    border-bottom-right-radius:5px;
+    border-bottom-right-radius:8px;
 
 }
 
 .ai{
 
-    background:white;
+    background:rgba(255,255,255,.9);
 
-    border:1px solid #ddd;
+    color:#1f2937;
 
-    color:#374151;
+    border:none;
 
-    border-bottom-left-radius:5px;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+    border-bottom-left-radius:8px;
 
 }
 
@@ -143,7 +211,7 @@ button:hover{
 
         opacity:0;
 
-        transform:translateY(10px);
+        transform:translateY(20px) scale(.95);
 
     }
 
@@ -151,7 +219,7 @@ button:hover{
 
         opacity:1;
 
-        transform:translateY(0);
+        transform:translateY(0) scale(1);
 
     }
 
@@ -197,3 +265,4 @@ button:hover{
     color: #555;
     margin: 10px 0;
 }
+

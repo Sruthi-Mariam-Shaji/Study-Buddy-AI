@@ -29,7 +29,7 @@ async function sendMessage() {
 
     try {
 
-        const response = await fetch("http://localhost:5000/ask", {
+        const response = await fetch("https://study-buddy-ai-q2oe.onrender.com", {
 
             method: "POST",
 
