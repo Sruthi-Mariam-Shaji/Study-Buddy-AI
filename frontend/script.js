@@ -15,7 +15,7 @@ input.addEventListener("keypress", function(e) {
     }
 });
 
-function sendMessage() {
+async function sendMessage() {
 
     const text = input.value.trim();
 
@@ -25,11 +25,41 @@ function sendMessage() {
 
     input.value = "";
 
-    setTimeout(() => {
+    addMessage("🤖 Thinking...", "ai");
 
-        addMessage("🤖 Thinking...", "ai");
+    try {
 
-    }, 500);
+        const response = await fetch("http://localhost:5000/ask", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                prompt: text
+            })
+
+        });
+
+        const data = await response.json();
+
+        chatBox.lastChild.remove();
+
+        addMessage(data.answer, "ai");
+
+    }
+
+    catch (error) {
+
+        chatBox.lastChild.remove();
+
+        addMessage("❌ Error connecting to server.", "ai");
+
+        console.error(error);
+
+    }
 
 }
 
@@ -39,7 +69,11 @@ function addMessage(text, sender) {
 
     div.className = `message ${sender}`;
 
-    div.innerHTML = text;
+    if (sender === "ai") {
+        div.innerHTML = marked.parse(text);
+    } else {
+        div.textContent = text;
+    }
 
     chatBox.appendChild(div);
 

@@ -1,3 +1,4 @@
+console.log("🚀 SERVER.JS STARTED");
 require("dotenv").config();
 
 const express = require("express");
@@ -46,6 +47,9 @@ app.post("/ask", async (req, res) => {
     });
   }
 });
+
+// 👇 ADD THIS LINE
+console.log("➡️ About to start server");
 
 const PORT = process.env.PORT || 5000;
 
