@@ -45,7 +45,9 @@ async function sendMessage() {
 
         const data = await response.json();
 
-        chatBox.lastChild.remove();
+        if (chatBox.lastChild) {
+            chatBox.lastChild.remove();
+        }
 
         addMessage(data.answer, "ai");
 
@@ -53,7 +55,9 @@ async function sendMessage() {
 
     catch (error) {
 
-        chatBox.lastChild.remove();
+        if (chatBox.lastChild) {
+    chatBox.lastChild.remove();
+}
 
         addMessage("❌ Error connecting to server.", "ai");
 
