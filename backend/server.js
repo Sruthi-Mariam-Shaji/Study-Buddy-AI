@@ -9,15 +9,14 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.send("🚀 AI Study Buddy Backend is Running!");
+});
 
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
 });
 
-// Test route
-app.get("/", (req, res) => {
-  res.send("🚀 AI Study Buddy Backend is Running!");
-});
 
 // AI route
 app.post("/ask", async (req, res) => {
